@@ -1,0 +1,1 @@
+echo ⏰`timedatectl | grep 'RTC time' | awk '{print $5}'`

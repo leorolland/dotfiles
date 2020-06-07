@@ -1,0 +1,15 @@
+curl -s 'https://www.red-by-sfr.fr/mon-espace-client/?casforcetheme=espaceclientred' \
+  -H 'Connection: keep-alive' \
+  -H 'Cache-Control: max-age=0' \
+  -H 'Upgrade-Insecure-Requests: 1' \
+  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36' \
+  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+  -H 'Sec-Fetch-Site: cross-site' \
+  -H 'Sec-Fetch-Mode: navigate' \
+  -H 'Sec-Fetch-User: ?1' \
+  -H 'Sec-Fetch-Dest: document' \
+  -H 'Referer: https://espace-client-red.sfr.fr/gestion-login/mot-de-passe/modification' \
+  -H 'Accept-Language: en-US,en;q=0.9,fr;q=0.8' \
+  -H 'Cookie: eTagAB=14; eTab034=1; eTab086=3; eTab110=1; eTab112=1; eTab819=2; eTab867=2; eTab998=1; s_cc=true; JSESSIDRTM=210F30FFA2CFA92EBCE8847C8866F1FE.rtm-red3; eTcnx=0.5609654139823264; eTeCli=772894833; authent=2_5971437fdf42402cda6234ec; eTe4=5971437fdf42402cda6234ec; eTempr=1; sfrUserUnreadMessages=-1; eTe19=MJ; s_fid=168913A38B71F89F-30323030AFFE3362; eTgdpr=7; eTiab=31; evar28=9_191551015_321356531; s_cmCat=18420:SEO|18420:Autres+sites; s_cmDet=18420:SEO+Inconnu|18420:Autres+sites; s_cmCT=18420:SEO+Inconnu|18420:Autres+sites; _gcl_au=1.1.293787854.1591551017; __utma=179674279.680503872.1591551017.1591551017.1591551017.1; __utmc=179674279; __utmz=179674279.1591551017.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; _fbp=fb.1.1591551017460.770056310; sfrintid=B_menu-boutique_gerer-suivi; eTs33=1; eTagUI=>Red:Aide>BOL>Mon Compte>#; gpv_p41=Web%2FMon%20Compte%2FHome; s_depth=8; eTagLV=26525858; s_sq=sfrredunvboutprod%252Csfrunvredglobprod%3D%2526c.%2526a.%2526activitymap.%2526page%253DWeb%25252FRed%25252FBoutique%25252FSuivi%252520Commande%2526link%253DCompte%252520client%2526region%253DeTrH%2526pageIDType%253D1%2526.activitymap%2526.a%2526.c%2526pid%253DWeb%25252FRed%25252FBoutique%25252FSuivi%252520Commande%2526pidt%253D1%2526oid%253Dhttps%25253A%25252F%25252Fwww.red-by-sfr.fr%25252Fmon-espace-client%25252F%25253Fcasforcetheme%25253Despaceclientred%252523redclicid%25253DX_Menu_EspaceCl%2526ot%253DA; mfb.actor.beta.=fHw1fHsiL21vbi1lc3BhY2UtY2xpZW50LyI6NCwiL3N1aXZpLWRlLWNvbW1hbmRlLmh0bWwiOjF9fHxbXXx8MTU5MTU1NTA5NzMwNHx8; etuix=V4qrJx9VZG_TzsZ15JG7QkI1Bo1iCcbNvUkhuHC7mmxqwhvWy2oYlA--; eTelrCC=1; __utmb=179674279.5.10.1591551017' \
+  -H 'If-Modified-Since: Wed, 03 Jun 2020 20:25:43 GMT' \
+  --compressed | grep -o '"libelle":"[0-9]*.[0-9]*[a-zA-Z]*"' | head -2 | tail -1 | tr '"' ' ' | awk '{print $3}'
