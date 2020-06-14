@@ -1,0 +1,1 @@
+echo noxunote.fr ⏱  `ping -n -c1 -s1000 37.59.116.115 | grep ms | head -1 | awk '{print $7}' | grep -o '[0-9]*' | head -1` ms

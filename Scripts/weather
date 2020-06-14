@@ -1,1 +1,1 @@
-curl 'wttr.in/Rennes?format="Rennes+%m%c+%t+%w"'
+curl -s 'wttr.in/Rennes?format="Rennes+%m%c+%t+%w"' | tr -d '"'

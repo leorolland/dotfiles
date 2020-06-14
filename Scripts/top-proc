@@ -1,1 +1,1 @@
-echo 💣`ps aux k-pcpu | head -2 | tail -1 | awk '{print $11}' | grep -o '[a-zA-Z]*$'`
+echo 🔺 `ps aux k-pcpu | head -2 | tail -1 | awk '{print $11}' | grep -o '[a-zA-Z]*$'`

@@ -1,0 +1,1 @@
+docker run --name phpmyadmin-dev -d --link mysql-dev:db -p 8081:80 phpmyadmin/phpmyadmin
