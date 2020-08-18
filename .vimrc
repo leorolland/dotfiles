@@ -33,3 +33,6 @@ set laststatus=2
 " build on save dwmblocks
 autocmd BufWritePost ~/clones/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
 
+" Enable parenthesis regex match
+set showmatch
+

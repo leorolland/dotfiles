@@ -2,3 +2,4 @@ INT=`ls /sys/class/net/ | dmenu`
 echo "Selecting interface : $INT"
 # systemctl start "dhcpcd@.${INT}service"
 sudo dhcpcd $INT
+reload-dwmblocks

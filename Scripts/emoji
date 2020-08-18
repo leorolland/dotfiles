@@ -1,0 +1,1 @@
+cat Scripts/emojis.txt | dmenu -l 20 | awk '{print $1}' | xclip -selection c
