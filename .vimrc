@@ -12,6 +12,7 @@ set wildmenu
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'davidhalter/jedi-vim' " Python autocompletion
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 " All of your Plugins must be added before the following line
 " To ignore plugin indent changes, instead use:
@@ -32,6 +33,7 @@ set laststatus=2
 
 " build on save dwmblocks
 autocmd BufWritePost ~/clones/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
+au BufWritePost *.c make
 
 " Enable parenthesis regex match
 set showmatch
