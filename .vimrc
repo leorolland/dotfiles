@@ -38,3 +38,5 @@ au BufWritePost *.c make
 " Enable parenthesis regex match
 set showmatch
 
+" Copy to clipboard
+vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
