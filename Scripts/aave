@@ -1,0 +1,1 @@
+echo 📈 $(curl -s https://dappradar.com/v2/api/dapp/ethereum/defi/aave/statistic/24h | jq -r '.defi.tokenPriceLabel')

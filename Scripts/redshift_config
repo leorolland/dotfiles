@@ -1,0 +1,2 @@
+killall redshift
+redshift -t 5000:6400

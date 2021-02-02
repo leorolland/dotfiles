@@ -1,1 +1,7 @@
-echo "   "🐋 `docker ps -q | wc -l`
+COUNT="-"
+docker ps 2> /dev/null > /dev/null
+if [ "$?" == 0 ]; then
+	COUNT=$(docker ps -q | wc -l)
+fi
+echo 🐋 $COUNT
+

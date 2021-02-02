@@ -1,0 +1,32 @@
+#!/bin/bash
+
+DOWNLOAD_FILE=/tmp/bandwidth_down
+UPLOAD_FILE=/tmp/bandwidth_up
+TIME_FILE=/tmp/time_elapsed_bw
+
+# Create tmp file if not exists
+[ ! -f "$DOWNLOAD_FILE" ] && echo "0" > $DOWNLOAD_FILE
+[ ! -f "$UPLOAD_FILE" ] && echo "0" > $UPLOAD_FILE
+[ ! -f "$TIME_FILE" ] && echo "0" > $TIME_FILE
+
+# Fetch ancient and new stats
+ANCIENT_DOWN=$(cat $DOWNLOAD_FILE)
+ANCIENT_UP=$(cat $UPLOAD_FILE)
+ANCIENT_MILISECONDS=$(cat $TIME_FILE)
+ACTUAL_DOWN=$(ifstat -jr | jq -r '.kernel.enp0s20f0u4.rx_bytes')
+ACTUAL_UP=$(ifstat -jr | jq -r '.kernel.enp0s20f0u4.tx_bytes')
+ACTUAL_MILISECONDS=$(date +%s%N | cut -b1-13)
+
+# Save new stats
+echo $ACTUAL_DOWN > $DOWNLOAD_FILE
+echo $ACTUAL_UP > $UPLOAD_FILE
+echo $ACTUAL_MILISECONDS > $TIME_FILE
+
+# Compute delta
+MS=$(expr $ACTUAL_MILISECONDS - $ANCIENT_MILISECONDS)
+SPEED_DOWN=$(expr \( $ACTUAL_DOWN - $ANCIENT_DOWN \) \* 1000 \* 8 / $MS )
+SPEED_UP=$(expr \( $ACTUAL_UP - $ANCIENT_UP \) \* 1000 \* 8 / $MS )
+
+D=$(echo $SPEED_DOWN | numfmt --to=si)
+U=$(echo $SPEED_UP | numfmt --to=si)
+printf '🔽 %4sbps 🔼 %4sbps' $D $U 

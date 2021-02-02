@@ -1,1 +1,1 @@
-echo `timedatectl | grep 'RTC time' | awk '{print $5}' | grep -o '^[0-9]*:[0-9]*'`'  ' 
+echo `timedatectl | grep 'Local time' | awk '{print $5}' | grep -o '^[0-9]*:[0-9]*'`'  ' 
