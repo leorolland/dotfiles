@@ -6,13 +6,18 @@ filetype plugin on
 " Provides tab-completion for all file-related tasks
 set path+=**
 
+" Enable mouse integration
+set mouse=a
+
 " Display all matching files when we tab complete
 set wildmenu
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'davidhalter/jedi-vim' " Python autocompletion
-Plug 'plasticboy/vim-markdown'
+Plug 'vim-airline/vim-airline'		" Vim interface
+Plug 'davidhalter/jedi-vim' 		" Python autocompletion
+Plug 'plasticboy/vim-markdown'		" Markdown autocomplete
+Plug 'airblade/vim-gitgutter' 		" Git gutter
+Plug 'puremourning/vimspector' 		" Debugger
 call plug#end()
 " All of your Plugins must be added before the following line
 " To ignore plugin indent changes, instead use:
@@ -40,3 +45,9 @@ set showmatch
 
 " Copy to clipboard
 vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
+
+" Debugger configuration
+let g:vimspector_enable_mappings = 'HUMAN'
+
+" Disable automatic RET at end of file
+set nofixendofline
