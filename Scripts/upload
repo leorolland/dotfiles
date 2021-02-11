@@ -1,0 +1,4 @@
+set -e
+FILE=${1// /_}
+scp -q "$1" leo@noxunote.fr:/var/www/html/uploads/$FILE
+echo "https://noxunote.fr/uploads/$FILE"
