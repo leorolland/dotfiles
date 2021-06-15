@@ -1,2 +1,2 @@
 killall redshift
-redshift -t 5000:6400
+redshift -l 46:2 -t 5000:6400

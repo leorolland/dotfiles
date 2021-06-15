@@ -1,0 +1,7 @@
+#!/bin/bash
+dir="/sys/class/power_supply/BAT0/"
+status=$( cat $dir"status" )
+capacity=$( cat $dir"charge_full_design" )
+current=$( cat $dir"charge_now" )
+percentage=$((current*100/capacity))
+echo $percentage"% "$status
