@@ -1,0 +1,21 @@
+[init]
+        defaultBranch = main
+[gpg]
+        program = gpg
+[core]
+        autocrlf = true
+[alias]
+        graph = log --oneline --graph --decorate
+        ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+        lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+        conflicts = diff --name-only --diff-filter=U
+        co = checkout
+        br = branch
+        ci = commit
+        st = status
+        pu = push
+        re = rebase
+        puf = push --force
+        am = commit --amend --no-edit
+        rem = remote get-url origin
