@@ -6,6 +6,9 @@ prompt adam1
 
 setopt histignorealldups sharehistory
 
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
@@ -44,11 +47,23 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 
+# Kubectl
+source <(kubectl completion zsh)
+alias k=kubectl
+alias kg='kubectl get'
+alias kga='kubectl get all'
+alias ku=kustomize
 # Enable VIM integration
 set -o vi
 
 # Defaults
 export EDITOR=vim
+
+# Path
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/go/bin
+export PATH="$HOME/.local/bin:$PATH"
 
 # Aliases
 alias ls="ls --color=auto"
@@ -58,6 +73,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias v='nvim'
 alias dush='du -sh * 2>/dev/null | sort -h'
+alias ra=ranger
+alias t=tmux
 # Unix copy/paste
 # alias pbcopy='xclip -selection clipboard'
 # alias pbpaste='xclip -selection clipboard -o'
